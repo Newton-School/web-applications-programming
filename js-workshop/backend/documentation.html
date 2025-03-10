@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant API Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #3498db;
+      margin-top: 30px;
+    }
+    h3 {
+      color: #e74c3c;
+      margin-top: 20px;
+    }
+    .endpoint {
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 4px solid #3498db;
+    }
+    .method {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .method-get {
+      color: #2ecc71;
+    }
+    .method-post {
+      color: #3498db;
+    }
+    .method-put, .method-patch {
+      color: #f39c12;
+    }
+    .method-delete {
+      color: #e74c3c;
+    }
+    .url {
+      font-family: monospace;
+      background-color: #eee;
+      padding: 3px 6px;
+      border-radius: 3px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Restaurant API Documentation</h1>
+  <p>A simple API for managing restaurant menu items and orders</p>
+  
+  <h2>Menu Endpoints</h2>
+  
+  <div class="endpoint">
+    <p><span class="method method-get">GET</span><span class="url">/api/menu</span></p>
+    <p>Get all menu items</p>
+    <h3>Response</h3>
+    <pre><code>[
+  {
+    "id": 1,
+    "itemName": "Burger",
+    "availableQuantity": 20,
+    "price": 9.99,
+    "createdAt": "2023-01-01T12:00:00.000Z",
+    "updatedAt": "2023-01-01T12:00:00.000Z"
+  },
+  ...
+]</code></pre>
+  </div>
+  
+  <div class="endpoint">
+    <p><span class="method method-get">GET</span><span class="url">/api/menu/:id</span></p>
+    <p>Get a specific menu item by ID</p>
+    <h3>Parameters</h3>
+    <p>id - Menu item ID (in URL)</p>
+    <h3>Response</h3>
+    <pre><code>{
+  "id": 1,
+  "itemName": "Burger",
+  "availableQuantity": 20,
+  "price": 9.99,
+  "createdAt": "2023-01-01T12:00:00.000Z",
+  "updatedAt": "2023-01-01T12:00:00.000Z"
+}</code></pre>
+  </div>
+  
+  <div class="endpoint">
+    <p><span class="method method-post">POST</span><span class="url">/api/menu</span></p>
+    <p>Create a new menu item</p>
+    <h3>Request Body</h3>
+    <pre><code>{
+  "id": 1,
+  "itemName": "Burger",
+  "availableQuantity": 20,
+  "price": 9.99
+}</code></pre>
+    <h3>Response</h3>
+    <pre><code>{
+  "id": 1,
+  "itemName": "Burger",
+  "availableQuantity": 20,
+  "price": 9.99,
+  "createdAt": "2023-01-01T12:00:00.000Z",
+  "updatedAt": "2023-01-01T12:00:00.000Z"
+}</code></pre>
+  </div>
+  
+  <div class="endpoint">
+    <p><span class="method method-put">PUT</span><span class="url">/api/menu/:id</span></p>
+    <p>Update a menu item</p>
+    <h3>Parameters</h3>
+    <p>id - Menu item ID (in URL)</p>
+    <h3>Request Body</h3>
+    <pre><code>{
+  "itemName": "Cheeseburger",
+  "availableQuantity": 15,
+  "price": 10.99
+}</code></pre>
+    <h3>Response</h3>
+    <pre><code>{
+  "id": 1,
+  "itemName": "Cheeseburger",
+  "availableQuantity": 15,
+  "price": 10.99,
+  "createdAt": "2023-01-01T12:00:00.000Z",
+  "updatedAt": "2023-01-01T12:30:00.000Z"
+}</code></pre>
+  </div>
+  
+  <div class="endpoint">
+    <p><span class="method method-delete">DELETE</span><span class="url">/api/menu/:id</span></p>
+    <p>Delete a menu item</p>
+    <h3>Parameters</h3>
+    <p>id - Menu item ID (in URL)</p>
+    <h3>Response</h3>
+    <pre><code>{
+  "message": "Menu item deleted"
+}</code></pre>
+  </div>
+  
+  <h2>Order Endpoints</h2>
+  
+  <div class="endpoint">
+    <p><span class="method method-get">GET</span><span class="url">/api/orders</span></p>
+    <p>Get all orders</p>
+    <h3>Response</h3>
+    <pre><code>[
+  {
+    "_id": "60d21b4667d0d8992e610c85",
+    "itemId": 1,
+    "quantity": 2,
+    "customerName": "John Doe",
+    "status": "pending",
+    "createdAt": "2023-01-01T12:00:00.000Z",
+    "updatedAt": "2023-01-01T12:00:00.000Z"
+  },
+  ...
+]</code></pre>
+  </div>
+  
+  <div class="endpoint">
+    <p><span class="method method-get">GET</span><span class="url">/api/orders/:id</span></p>
+    <p>Get a specific order by ID</p>
+    <h3>Parameters</h3>
+    <p>id - Order ID (in URL)</p>
+    <h3>Response</h3>
+    <pre><code>{
+  "_id": "60d21b4667d0d8992e610c85",
+  "itemId": 1,
+  "quantity": 2,
+  "customerName": "John Doe",
+  "status": "pending",
+  "createdAt": "2023-01-01T12:00:00.000Z",
+  "updatedAt": "2023-01-01T12:00:00.000Z"
+}</code></pre>
+  </div>
+  
+  <div class="endpoint">
+    <p><span class="method method-post">POST</span><span class="url">/api/orders</span></p>
+    <p>Create a new order</p>
+    <h3>Request Body</h3>
+    <pre><code>{
+  "itemId": 1,
+  "quantity": 2,
+  "customerName": "John Doe"
+}</code></pre>
+    <h3>Response</h3>
+    <pre><code>{
+  "_id": "60d21b4667d0d8992e610c85",
+  "itemId": 1,
+  "quantity": 2,
+  "customerName": "John Doe",
+  "status": "pending",
+  "createdAt": "2023-01-01T12:00:00.000Z",
+  "updatedAt": "2023-01-01T12:00:00.000Z"
+}</code></pre>
+  </div>
+  
+  <div class="endpoint">
+    <p><span class="method method-patch">PATCH</span><span class="url">/api/orders/:id</span></p>
+    <p>Update an order status</p>
+    <h3>Parameters</h3>
+    <p>id - Order ID (in URL)</p>
+    <h3>Request Body</h3>
+    <pre><code>{
+  "status": "completed"
+}</code></pre>
+    <h3>Response</h3>
+    <pre><code>{
+  "_id": "60d21b4667d0d8992e610c85",
+  "itemId": 1,
+  "quantity": 2,
+  "customerName": "John Doe",
+  "status": "completed",
+  "createdAt": "2023-01-01T12:00:00.000Z",
+  "updatedAt": "2023-01-01T12:30:00.000Z"
+}</code></pre>
+  </div>
+  
+  <div class="endpoint">
+    <p><span class="method method-delete">DELETE</span><span class="url">/api/orders/:id</span></p>
+    <p>Delete an order</p>
+    <h3>Parameters</h3>
+    <p>id - Order ID (in URL)</p>
+    <h3>Response</h3>
+    <pre><code>{
+  "message": "Order deleted and inventory restored"
+}</code></pre>
+  </div>
+</body>
+</html> 
