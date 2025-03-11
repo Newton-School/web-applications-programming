@@ -7,6 +7,7 @@ The repository contains the resources for the JS workshop.
 The repository is structured as follows:
 
 - [`backend`](backend/): The backend server
+- [`index.html`](index.html): The HTML file for the workshop. This file contains a simple HTML document with a script tag that points to the `solution.js` file.
 - [`problem.md`](problem.md): The problem statement for the workshop
 - [`solution.js`](solution.js): An example solution to the problem
 - [`README.md`](README.md): The README for the workshop (this file)
