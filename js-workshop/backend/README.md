@@ -6,6 +6,7 @@ A simple Node.js API for a restaurant menu and order system that uses MongoDB.
 
 - Node.js (v14+ recommended)
 - MongoDB (running locally on the default port 27017)
+- Environment variables can be set using a `.env` file (see [.env.example](.env.example))
 
 ## Installation
 
@@ -13,9 +14,15 @@ A simple Node.js API for a restaurant menu and order system that uses MongoDB.
 2. Navigate to the backend directory
 3. Install dependencies:
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
+
+4. Run the seed script to populate the database (optional):
+
+    ```bash
+    npm run seed
+    ```
 
 ## Running the API
 
@@ -25,7 +32,7 @@ Start the development server:
 npm run dev
 ```
 
-The server will run on http://localhost:3000 by default.
+The server will run on <http://localhost:3000> by default.
 
 ## API Endpoints
 
@@ -77,4 +84,4 @@ PATCH /api/orders/:id
 {
   "status": "completed"
 }
-``` 
+```
