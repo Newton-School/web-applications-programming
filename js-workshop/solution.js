@@ -1,4 +1,4 @@
-async function main() {
+async function menu() {
     // Welcome message
     console.log('Welcome to our Restaurant!');
 
@@ -40,14 +40,17 @@ async function main() {
 
     // POST the order to the API
     try {
-        const postResponse = await fetch('http://localhost:3000/api/orders', {
-            // Replace with actual API URL
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(order),
-        });
+        const postResponse = await fetch(
+            'http://localhost:3000/api/orders',
+            {
+                // Replace with actual API URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(order),
+            }
+        );
 
         if (postResponse.ok) {
             console.log('Order placed successfully!');
@@ -99,7 +102,7 @@ async function displayOrders() {
 }
 
 // Uncomment the following line to use the main function:
-// main();
+// menu();
 
 // Uncomment the following lines to use these functions as needed:
 // checkAvailableQuantity();

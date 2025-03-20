@@ -8,7 +8,7 @@ You are tasked with creating a client-side JavaScript application for a restaura
 
 1. **Menu Display**:
    - Fetch and display all available menu items from the restaurant's API
-   - Show each item's name, available quantity, and price
+   - Show each item's ID, name, available quantity, and price
 
 2. **Order Placement**:
    - Allow customers to select an item by its ID
